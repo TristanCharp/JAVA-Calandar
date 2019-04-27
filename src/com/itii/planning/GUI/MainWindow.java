@@ -155,8 +155,9 @@ public class MainWindow extends JFrame {
 
         //---- comboBox1 ----
         comboBox1.setMaximumRowCount(3);
+        comboBox1.setSelectedIndex(0);
         contentPane.add(comboBox1);
-        comboBox1.setBounds(new Rectangle(new Point(115, 5), comboBox1.getPreferredSize()));
+        comboBox1.setBounds(new Rectangle(new Point(115, 0), comboBox1.getPreferredSize()));
 
         { // compute preferred size
             Dimension preferredSize = new Dimension();
