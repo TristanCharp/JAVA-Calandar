@@ -14,7 +14,8 @@ public class MainWindow extends JFrame {
 
 
     private MainWindow() {
-        initialize();
+        //initialize();
+        initComponents();
     }
 
 
@@ -59,7 +60,7 @@ public class MainWindow extends JFrame {
 
             //======== menu1 ========
             {
-                menu1.setText("FIle");
+                menu1.setText("File");
             }
             menuBar1.add(menu1);
         }
@@ -81,5 +82,13 @@ public class MainWindow extends JFrame {
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+
+        setSize(640,480);
+        setVisible(true);
+
+
+        this.validate();
+        this.repaint();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
