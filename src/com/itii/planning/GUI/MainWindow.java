@@ -36,6 +36,8 @@ public class MainWindow extends JFrame {
     private JMenuItem menuItem8;
     private JMenuItem menuItem9;
     private JMenu menu4;
+    private JLabel label1;
+    private JComboBox comboBox1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 
@@ -74,6 +76,8 @@ public class MainWindow extends JFrame {
         menuItem8 = new JMenuItem();
         menuItem9 = new JMenuItem();
         menu4 = new JMenu();
+        label1 = new JLabel();
+        comboBox1 = new JComboBox();
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -143,6 +147,16 @@ public class MainWindow extends JFrame {
             menuBar1.add(menu4);
         }
         setJMenuBar(menuBar1);
+
+        //---- label1 ----
+        label1.setText("Vue :");
+        contentPane.add(label1);
+        label1.setBounds(85, 5, 30, 20);
+
+        //---- comboBox1 ----
+        comboBox1.setMaximumRowCount(3);
+        contentPane.add(comboBox1);
+        comboBox1.setBounds(new Rectangle(new Point(115, 5), comboBox1.getPreferredSize()));
 
         { // compute preferred size
             Dimension preferredSize = new Dimension();
