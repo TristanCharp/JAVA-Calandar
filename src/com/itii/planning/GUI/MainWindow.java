@@ -23,5 +23,6 @@ public class MainWindow extends JFrame {
 
         this.validate();
         this.repaint();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
