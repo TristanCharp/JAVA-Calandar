@@ -5,9 +5,9 @@ import javax.swing.*;
 public class MainWindow extends JFrame {
     private JPanel panel1;
     private JButton button1;
-    private MainWindow mainWindow;
+    private static MainWindow mainWindow;
 
-    public MainWindow getMainWindow() {
+    public static MainWindow getMainWindow() {
         if ( mainWindow == null){
             mainWindow = new MainWindow();
         }
@@ -18,7 +18,10 @@ public class MainWindow extends JFrame {
         initialize();
     }
     private void initialize(){
-        setSize(50,50);
+        setSize(640,480);
         setVisible(true);
+
+        this.validate();
+        this.repaint();
     }
 }
