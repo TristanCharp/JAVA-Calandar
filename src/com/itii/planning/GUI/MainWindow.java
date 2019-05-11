@@ -67,14 +67,9 @@ public class MainWindow extends JFrame {
         btnSupprimer.setBounds(0, 147, 100, 23);
         panel_1.add(btnSupprimer);
         
-        JPanel panel = new JPanel();
-        panel.setBounds(0, 0, 624, 22);
-        getContentPane().add(panel);
-        panel.setLayout(null);
-        
         JMenuBar menuBar = new JMenuBar();
         menuBar.setBounds(0, 0, 419, 24);
-        panel.add(menuBar);
+        getContentPane().add(menuBar);
         
         JMenuItem mntmNewMenuItem_2 = new JMenuItem("Fichier");
         menuBar.add(mntmNewMenuItem_2);
