@@ -71,16 +71,16 @@ public class MainWindow extends JFrame {
         menuBar.setBounds(0, 0, 419, 24);
         getContentPane().add(menuBar);
         
-        JMenuItem mntmNewMenuItem_2 = new JMenuItem("Fichier");
-        menuBar.add(mntmNewMenuItem_2);
+        JMenu mnFichier = new JMenu("Fichier");
+        menuBar.add(mnFichier);
         
-        JMenuItem mntmNewMenuItem_1 = new JMenuItem("Edition");
-        menuBar.add(mntmNewMenuItem_1);
+        JMenu mnEditer = new JMenu("Editer");
+        menuBar.add(mnEditer);
         
-        JMenuItem mntmNewMenuItem = new JMenuItem("Vue");
-        menuBar.add(mntmNewMenuItem);
+        JMenu mnVue = new JMenu("Vue");
+        menuBar.add(mnVue);
         
-        JMenuItem mntmNewMenuItem_3 = new JMenuItem("Aide");
-        menuBar.add(mntmNewMenuItem_3);
+        JMenu mnAide = new JMenu("Aide");
+        menuBar.add(mnAide);
     }
 }
