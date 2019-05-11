@@ -48,27 +48,28 @@ public class MainWindow extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         	}
         });
-        btnNewButton_1.setBounds(0, 11, 89, 23);
+        btnNewButton_1.setBounds(0, 11, 100, 23);
         panel_1.add(btnNewButton_1);
         
         JButton btnNewButton = new JButton("Editer");
-        btnNewButton.setBounds(0, 45, 89, 23);
+        btnNewButton.setBounds(0, 45, 100, 23);
         panel_1.add(btnNewButton);
         
         JButton btnNewButton_2 = new JButton("Marquer");
-        btnNewButton_2.setBounds(0, 79, 89, 23);
+        btnNewButton_2.setBounds(0, 79, 100, 23);
         panel_1.add(btnNewButton_2);
         
         JButton btnNewButton_3 = new JButton("Dupliquer");
-        btnNewButton_3.setBounds(0, 113, 89, 23);
+        btnNewButton_3.setBounds(0, 113, 100, 23);
         panel_1.add(btnNewButton_3);
         
         JButton btnSupprimer = new JButton("Supprimer");
-        btnSupprimer.setBounds(0, 147, 89, 23);
+        btnSupprimer.setBounds(0, 147, 100, 23);
         panel_1.add(btnSupprimer);
         
         JMenuBar menuBar = new JMenuBar();
-        setJMenuBar(menuBar);
+        menuBar.setBounds(0, 0, 624, 24);
+        getContentPane().add(menuBar);
         
         JMenuItem mntmNewMenuItem_2 = new JMenuItem("Fichier");
         menuBar.add(mntmNewMenuItem_2);
