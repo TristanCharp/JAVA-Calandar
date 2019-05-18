@@ -50,6 +50,8 @@ public class MainWindow extends JFrame {
         JButton btnNewButton_1 = new JButton("Creer");
         btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		WindowCreate windowCreate = new WindowCreate();
+        		windowCreate.setVisible(true);
         	}
         });
         btnNewButton_1.setBounds(0, 11, 100, 25);
