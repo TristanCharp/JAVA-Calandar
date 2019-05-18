@@ -40,6 +40,7 @@ public class MainWindow extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+        this.setTitle("Gestionnaire de planning");
         
         JPanel panel_1 = new JPanel();
         panel_1.setMinimumSize(new Dimension(250, 130));
@@ -60,6 +61,12 @@ public class MainWindow extends JFrame {
         JButton btnNewButton = new JButton("Editer");
         btnNewButton.setBounds(0, 47, 100, 25);
         panel_1.add(btnNewButton);
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		WindowEdit windowEdite = new WindowEdit();
+        		windowEdite.setVisible(true);
+        	}
+        });
         
         JButton btnNewButton_2 = new JButton("Marquer");
         btnNewButton_2.setBounds(0, 83, 100, 25);
@@ -74,12 +81,12 @@ public class MainWindow extends JFrame {
         panel_1.add(btnSupprimer);
         
         JLabel lblVue = new JLabel("Vue :");
-        lblVue.setBounds(116, 11, 34, 14);
+        lblVue.setBounds(38, 11, 44, 14);
         getContentPane().add(lblVue);
         
         JComboBox comboBox = new JComboBox();
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Liste", "Semaine", "Mois"}));
-        comboBox.setBounds(145, 8, 223, 20);
+        comboBox.setBounds(100, 8, 223, 20);
         getContentPane().add(comboBox);
         
         JMenuBar menuBar = new JMenuBar();
@@ -123,9 +130,16 @@ public class MainWindow extends JFrame {
         
         JMenu mnAide = new JMenu("Aide");
         menuBar.add(mnAide);
+
         
         JMenuItem mntmNewMenuItem_5 = new JMenuItem("Aide");
         mnAide.add(mntmNewMenuItem_5);
+        mntmNewMenuItem_5.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		WindowAide windowAide = new WindowAide();
+        		windowAide.setVisible(true);
+        	}
+        });
         menuBar.setVisible(true);
        
         

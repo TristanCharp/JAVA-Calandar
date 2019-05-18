@@ -12,7 +12,7 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
-public class WindowCreate extends JFrame {
+public class WindowEdit extends JFrame {
 
     /**
 	 * 
@@ -23,7 +23,7 @@ public class WindowCreate extends JFrame {
 	private JTextField textField_2;
 
 	
-    public WindowCreate() {
+    public WindowEdit() {
     	this.setSize(928, 450);
     	getContentPane().setMinimumSize(new Dimension(130, 250));
     	getContentPane().setLayout(null);
