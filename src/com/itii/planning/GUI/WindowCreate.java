@@ -23,6 +23,8 @@ import com.itii.planning.Engine;
 
 
 
+
+
 public class WindowCreate extends JFrame {
 
     /**
@@ -97,8 +99,8 @@ public class WindowCreate extends JFrame {
     	
     	JDatePanelImpl datePanel = new JDatePanelImpl(model,p );
     	JDatePickerImpl datePicker_1 = new JDatePickerImpl(datePanel,new DateLabelFormatter());
-
-    	datePicker_1.setBounds(530, 79, 202, 23);
+    	
+    	datePicker_1.setBounds(530, 79, 202, 30);
     	
     	panel.add(datePicker_1);
     	datePicker_1.setAlignmentX(Component.RIGHT_ALIGNMENT);

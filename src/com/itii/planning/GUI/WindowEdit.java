@@ -1,16 +1,29 @@
 package com.itii.planning.GUI;
+
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
+
+import com.itii.planning.Engine;
+
+
+
+
 
 public class WindowEdit extends JFrame {
 
@@ -18,19 +31,22 @@ public class WindowEdit extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNom;
+	private JTextField txtDate;
+	private JTextField txtDetail;
+	private Engine engine = Engine.getEngine();
 
+
+	private JDatePickerImpl datePicker_1;
 	
     public WindowEdit() {
-    	this.setSize(928, 450);
-    	getContentPane().setMinimumSize(new Dimension(130, 250));
+    	this.setSize(770, 428);
+    	getContentPane().setMinimumSize(new Dimension(906, 402));
     	getContentPane().setLayout(null);
-    	this.setTitle("Nouvelle tâche");
+    	this.setTitle("Editer tâche");
     	
     	JPanel panel = new JPanel();
-    	panel.setBounds(0, 0, 906, 402);
+    	panel.setBounds(0, 0, 754, 389);
     	getContentPane().add(panel);
     	panel.setLayout(null);
     	
@@ -38,54 +54,71 @@ public class WindowEdit extends JFrame {
     	lblNomDeLa.setBounds(18, 33, 126, 20);
     	panel.add(lblNomDeLa);
     	
-    	textField = new JTextField();
-    	textField.setBounds(159, 30, 722, 26);
-    	panel.add(textField);
-    	textField.setColumns(10);
+    	txtNom = new JTextField();
+    	txtNom.setBounds(159, 30, 573, 26);
+    	panel.add(txtNom);
+    	txtNom.setColumns(10);
     	
     	JLabel lblDateDe = new JLabel("Date d\u00FBe :");
     	lblDateDe.setBounds(18, 79, 126, 20);
     	panel.add(lblDateDe);
     	
-    	textField_1 = new JTextField();
-    	textField_1.setColumns(10);
-    	textField_1.setBounds(159, 76, 350, 26);
-    	panel.add(textField_1);
+    	txtDate = new JTextField();
+    	txtDate.setColumns(10);
+    	txtDate.setBounds(159, 76, 350, 26);
+    	panel.add(txtDate);
     	
     	JLabel lblDtails = new JLabel("D\u00E9tails :");
     	lblDtails.setBounds(18, 134, 126, 20);
     	panel.add(lblDtails);
     	
-    	textField_2 = new JTextField();
-    	textField_2.setBounds(159, 118, 350, 200);
-    	panel.add(textField_2);
-    	textField_2.setColumns(10);
+    	txtDetail = new JTextField();
+    	txtDetail.setBounds(159, 118, 350, 200);
+    	panel.add(txtDetail);
+    	txtDetail.setColumns(10);
     	
     	JButton btnAnnuler = new JButton("Annuler");
-    	btnAnnuler.setBounds(626, 357, 115, 29);
+    	btnAnnuler.setBounds(426, 344, 115, 29);
     	panel.add(btnAnnuler);
     	
     	JButton btnOk = new JButton("OK");
-    	btnOk.setBounds(766, 357, 115, 29);
+    	btnOk.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			engine.addTache(txtNom.getText(), txtDate.getText(),txtDetail.getText());
+    		}
+    	});
+    	btnOk.setBounds(571, 344, 115, 29);
     	panel.add(btnOk);
-    	
 
     	Properties p = new Properties();
-    	p.put("text.today", "Today");
-    	p.put("text.month", "Month");
-    	p.put("text.year", "Year");
-  
+    	p.put("text.today", "today");
+    	p.put("text.month", "month");
+    	p.put("text.year", "year");
+
     	UtilDateModel model = new UtilDateModel();
-    	JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-    	JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, null);
-    	datePicker.getJFormattedTextField().setBounds(0, 0, -54, 29);
-    	datePicker.setLocation(200, 150);
     	
-    	panel.add(datePicker);
-    	datePicker.setLayout(null);
-
+    	JDatePanelImpl datePanel = new JDatePanelImpl(model,p );
+    	JDatePickerImpl datePicker_1 = new JDatePickerImpl(datePanel,new DateLabelFormatter());
     	
+    	datePicker_1.setBounds(530, 79, 202, 30);
+    	
+    	panel.add(datePicker_1);
+    	datePicker_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
-    }
+
+}
+    public void actionPerformed(ActionEvent event) {
+		// for UtilDateModel, the value returned is of type java.util.Date
+		Date selectedDate = (Date) datePicker_1.getModel().getValue();
+		
+		// for UtilCalendarModel, the value returned is of type java.util.Calendar
+//		Calendar selectedValue = (Calendar) datePicker.getModel().getValue();
+//		Date selectedDate = selectedValue.getTime();
+
+		// for SqlDateModel, the value returned is of type java.sql.Date
+//		java.sql.Date selectedDate = (java.sql.Date) datePicker.getModel().getValue();
+		
+		JOptionPane.showMessageDialog(this, "The selected date is " + selectedDate);
+	}
 }
 
