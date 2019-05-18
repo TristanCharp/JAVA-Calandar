@@ -12,15 +12,21 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
+import com.itii.planning.Engine;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class WindowCreate extends JFrame {
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNom;
+	private JTextField txtDate;
+	private JTextField txtDetail;
+	private Engine engine = Engine.getEngine();
 
 	
     public WindowCreate() {
@@ -38,34 +44,39 @@ public class WindowCreate extends JFrame {
     	lblNomDeLa.setBounds(18, 33, 126, 20);
     	panel.add(lblNomDeLa);
     	
-    	textField = new JTextField();
-    	textField.setBounds(159, 30, 722, 26);
-    	panel.add(textField);
-    	textField.setColumns(10);
+    	txtNom = new JTextField();
+    	txtNom.setBounds(159, 30, 722, 26);
+    	panel.add(txtNom);
+    	txtNom.setColumns(10);
     	
     	JLabel lblDateDe = new JLabel("Date d\u00FBe :");
     	lblDateDe.setBounds(18, 79, 126, 20);
     	panel.add(lblDateDe);
     	
-    	textField_1 = new JTextField();
-    	textField_1.setColumns(10);
-    	textField_1.setBounds(159, 76, 350, 26);
-    	panel.add(textField_1);
+    	txtDate = new JTextField();
+    	txtDate.setColumns(10);
+    	txtDate.setBounds(159, 76, 350, 26);
+    	panel.add(txtDate);
     	
     	JLabel lblDtails = new JLabel("D\u00E9tails :");
     	lblDtails.setBounds(18, 134, 126, 20);
     	panel.add(lblDtails);
     	
-    	textField_2 = new JTextField();
-    	textField_2.setBounds(159, 118, 350, 200);
-    	panel.add(textField_2);
-    	textField_2.setColumns(10);
+    	txtDetail = new JTextField();
+    	txtDetail.setBounds(159, 118, 350, 200);
+    	panel.add(txtDetail);
+    	txtDetail.setColumns(10);
     	
     	JButton btnAnnuler = new JButton("Annuler");
     	btnAnnuler.setBounds(626, 357, 115, 29);
     	panel.add(btnAnnuler);
     	
     	JButton btnOk = new JButton("OK");
+    	btnOk.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			engine.addTache(txtNom.getText(), txtDate.getText(),txtDetail.getText());
+    		}
+    	});
     	btnOk.setBounds(766, 357, 115, 29);
     	panel.add(btnOk);
     	
