@@ -35,7 +35,7 @@ public class MainWindow extends JFrame {
 
     private void initialize(){
         
-    	setSize(640,480);
+    	setSize(633,404);
         setVisible(true);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
