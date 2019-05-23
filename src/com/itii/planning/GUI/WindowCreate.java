@@ -78,6 +78,11 @@ public class WindowCreate extends JFrame {
     	txtDetail.setColumns(10);
     	
     	JButton btnAnnuler = new JButton("Annuler");
+    	btnAnnuler.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			dispose();
+    		}
+    	});
     	btnAnnuler.setBounds(426, 344, 115, 29);
     	panel.add(btnAnnuler);
     	
@@ -85,6 +90,7 @@ public class WindowCreate extends JFrame {
     	btnOk.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
     			engine.addTache(txtNom.getText(), txtDate.getText(),txtDetail.getText());
+    			dispose();
     		}
     	});
     	btnOk.setBounds(571, 344, 115, 29);

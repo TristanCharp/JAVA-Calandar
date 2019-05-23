@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 
@@ -32,6 +33,7 @@ public class WindowEdit extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNom;
+	private JSpinner spinID;
 	private JTextField txtDate;
 	private JTextField txtDetail;
 	private Engine engine = Engine.getEngine();
@@ -53,6 +55,10 @@ public class WindowEdit extends JFrame {
     	JLabel lblNomDeLa = new JLabel("Nom de la t\u00E2che :");
     	lblNomDeLa.setBounds(18, 33, 126, 20);
     	panel.add(lblNomDeLa);
+    	
+    	spinID = new JSpinner();
+    	spinID.setVisible(false);
+    	
     	
     	txtNom = new JTextField();
     	txtNom.setBounds(159, 30, 573, 26);
@@ -78,13 +84,19 @@ public class WindowEdit extends JFrame {
     	txtDetail.setColumns(10);
     	
     	JButton btnAnnuler = new JButton("Annuler");
+    	btnAnnuler.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			dispose();
+    		}
+    	});
     	btnAnnuler.setBounds(426, 344, 115, 29);
     	panel.add(btnAnnuler);
     	
     	JButton btnOk = new JButton("OK");
     	btnOk.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			engine.addTache(txtNom.getText(), txtDate.getText(),txtDetail.getText());
+    			engine.editTache(txtNom.getText(), txtDate.getText(),txtDetail.getText(), (int) spinID.getValue());
+    			dispose();
     		}
     	});
     	btnOk.setBounds(571, 344, 115, 29);
