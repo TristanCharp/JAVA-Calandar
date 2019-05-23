@@ -1,6 +1,8 @@
 package com.itii.planning.GUI;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
 import java.awt.BorderLayout;
@@ -20,6 +22,8 @@ public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static MainWindow mainWindow;
 	private JTable table;
+	private JTable table_1;
+	private JTable table_2;
 
 
     private MainWindow() {
@@ -92,17 +96,58 @@ public class MainWindow extends JFrame {
         comboBox.setBounds(100, 8, 223, 20);
         getContentPane().add(comboBox);
         
-        
-        
-        
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(28, 48, 443, 261);
+        scrollPane.setBounds(27, 48, 438, 261);
         getContentPane().add(scrollPane);
         
-        Object[][] data = {} ;
-    		String[] header = {"Nom de la tache","Date due", "Details"}; 
-    	JTable table = new JTable(data, header);
-        scrollPane.setViewportView(table);
+        
+
+		Object[][] dataListe = { } ;
+		String[] headerListe = {"Nome de la tache","Date due", "Details"}; 
+        
+        table_2 = new JTable(dataListe,headerListe);
+        scrollPane.setViewportView(table_2);
+        
+        Object[][] dataSemaine = { } ;
+		String[] headerSemaine = {"Lundi","Mardi", "Mercredi","Jeudi","Vendredi","Samedi","Dimanche"}; 
+        
+        table_1 = new JTable(dataSemaine,headerSemaine);
+        
+        
+        Object[][] dataMois = { } ;
+		String[] headerMois = {"Lundi","Mardi", "Mercredi","Jeudi","Vendredi","Samedi","Dimanche"}; 
+        
+        table = new JTable(dataMois,headerMois);
+        
+
+
+        
+        comboBox.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		switch ((String) comboBox.getSelectedItem()) {
+				case "Liste":
+					scrollPane.setViewportView(table_2);
+					break;
+				case "Semaine":
+					scrollPane.setViewportView(table_1);
+					break;
+				case "Mois":
+					scrollPane.setViewportView(table);
+					
+					break;
+
+				default:
+					System.out.println("error");
+					break;
+				}
+        		
+        	}
+        });
+        
+
+        
+       
+        
         
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
