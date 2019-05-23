@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 
@@ -21,6 +20,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import com.itii.planning.Engine;
+import javax.swing.JTextArea;
 
 
 
@@ -33,9 +33,6 @@ public class WindowEdit extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNom;
-	private JSpinner spinID;
-	private JTextField txtDate;
-	private JTextField txtDetail;
 	private Engine engine = Engine.getEngine();
 
 
@@ -45,7 +42,7 @@ public class WindowEdit extends JFrame {
     	this.setSize(770, 428);
     	getContentPane().setMinimumSize(new Dimension(906, 402));
     	getContentPane().setLayout(null);
-    	this.setTitle("Editer tâche");
+    	this.setTitle("Editer tache");
     	
     	JPanel panel = new JPanel();
     	panel.setBounds(0, 0, 754, 389);
@@ -56,10 +53,6 @@ public class WindowEdit extends JFrame {
     	lblNomDeLa.setBounds(18, 33, 126, 20);
     	panel.add(lblNomDeLa);
     	
-    	spinID = new JSpinner();
-    	spinID.setVisible(false);
-    	
-    	
     	txtNom = new JTextField();
     	txtNom.setBounds(159, 30, 573, 26);
     	panel.add(txtNom);
@@ -69,19 +62,13 @@ public class WindowEdit extends JFrame {
     	lblDateDe.setBounds(18, 79, 126, 20);
     	panel.add(lblDateDe);
     	
-    	txtDate = new JTextField();
-    	txtDate.setColumns(10);
-    	txtDate.setBounds(159, 76, 350, 26);
-    	panel.add(txtDate);
-    	
     	JLabel lblDtails = new JLabel("D\u00E9tails :");
     	lblDtails.setBounds(18, 134, 126, 20);
     	panel.add(lblDtails);
     	
-    	txtDetail = new JTextField();
-    	txtDetail.setBounds(159, 118, 350, 200);
-    	panel.add(txtDetail);
-    	txtDetail.setColumns(10);
+    	JTextArea txtaDetails = new JTextArea();
+    	txtaDetails.setBounds(159, 132, 439, 189);
+    	panel.add(txtaDetails);
     	
     	JButton btnAnnuler = new JButton("Annuler");
     	btnAnnuler.addActionListener(new ActionListener() {
@@ -95,7 +82,7 @@ public class WindowEdit extends JFrame {
     	JButton btnOk = new JButton("OK");
     	btnOk.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			engine.editTache(txtNom.getText(), txtDate.getText(),txtDetail.getText(), (int) spinID.getValue());
+    			engine.addTache(txtNom.getText(), (String) datePicker_1.getModel().getValue(),txtaDetails.getText());
     			dispose();
     		}
     	});
@@ -112,10 +99,12 @@ public class WindowEdit extends JFrame {
     	JDatePanelImpl datePanel = new JDatePanelImpl(model,p );
     	JDatePickerImpl datePicker_1 = new JDatePickerImpl(datePanel,new DateLabelFormatter());
     	
-    	datePicker_1.setBounds(530, 79, 202, 30);
+    	datePicker_1.setBounds(159, 69, 202, 30);
     	
     	panel.add(datePicker_1);
     	datePicker_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	
+
 
 
 }

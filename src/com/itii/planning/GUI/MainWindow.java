@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
 import java.awt.Color;
@@ -51,14 +53,14 @@ public class MainWindow extends JFrame {
         
         JPanel panel_1 = new JPanel();
         panel_1.setMinimumSize(new Dimension(250, 130));
-        panel_1.setBounds(486, 48, 128, 261);
+        panel_1.setBounds(485, 48, 129, 188);
         getContentPane().add(panel_1);
         panel_1.setLayout(null);
         
         JButton btnNewButton_1 = new JButton("Creer");
         btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		WindowCreate windowCreate = new WindowCreate();
+        		WindowEdit windowCreate = new WindowEdit();
         		windowCreate.setVisible(true);
         	}
         });
@@ -87,6 +89,9 @@ public class MainWindow extends JFrame {
         btnSupprimer.setBounds(0, 155, 100, 25);
         panel_1.add(btnSupprimer);
         
+        Date date = new Date();
+        SimpleDateFormat formatter =  new SimpleDateFormat("dd-MM-yyyy");
+        
         JLabel lblVue = new JLabel("Vue :");
         lblVue.setBounds(38, 11, 44, 14);
         getContentPane().add(lblVue);
@@ -107,6 +112,18 @@ public class MainWindow extends JFrame {
         
         table_2 = new JTable(dataListe,headerListe);
         scrollPane.setViewportView(table_2);
+        
+        //Date
+        JLabel lbldateDuJour = new JLabel("Date du jour :");
+        JLabel lbldateDuJour2 = new JLabel("Date");
+        lbldateDuJour.setBounds(485, 235, 150, 37);
+        lbldateDuJour2.setBounds(485, 253, 150, 37);
+        getContentPane().add(lbldateDuJour);
+        getContentPane().add(lbldateDuJour2);
+        
+        
+        lbldateDuJour.setText("Date du jour :");
+        lbldateDuJour2.setText(formatter.format(date));
         
         Object[][] dataSemaine = { } ;
 		String[] headerSemaine = {"Lundi","Mardi", "Mercredi","Jeudi","Vendredi","Samedi","Dimanche"}; 
