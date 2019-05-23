@@ -174,7 +174,7 @@ public class MainWindow extends JFrame {
         
         JMenuItem mntmNewMenuItem = new JMenuItem("Quitter");
         mnFichier.add(mntmNewMenuItem);
-        mnFichier.addActionListener(new ActionListener() {
+        mntmNewMenuItem.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
     			dispose();
     		}
