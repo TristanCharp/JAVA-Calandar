@@ -1,6 +1,8 @@
 package com.itii.planning.GUI;
 
 import javax.swing.*;
+import javax.swing.table.TableModel;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -17,6 +19,7 @@ public class MainWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static MainWindow mainWindow;
+	private JTable table;
 
 
     private MainWindow() {
@@ -88,6 +91,18 @@ public class MainWindow extends JFrame {
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Liste", "Semaine", "Mois"}));
         comboBox.setBounds(100, 8, 223, 20);
         getContentPane().add(comboBox);
+        
+        
+        
+        
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(28, 48, 443, 261);
+        getContentPane().add(scrollPane);
+        
+        Object[][] data = {} ;
+    		String[] header = {"Nom de la tache","Date due", "Details"}; 
+    	JTable table = new JTable(data, header);
+        scrollPane.setViewportView(table);
         
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);

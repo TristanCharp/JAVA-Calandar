@@ -43,7 +43,7 @@ public class WindowCreate extends JFrame {
     	this.setSize(770, 428);
     	getContentPane().setMinimumSize(new Dimension(906, 402));
     	getContentPane().setLayout(null);
-    	this.setTitle("Nouvelle tâche");
+    	this.setTitle("Nouvelle tache");
     	
     	JPanel panel = new JPanel();
     	panel.setBounds(0, 0, 754, 389);
