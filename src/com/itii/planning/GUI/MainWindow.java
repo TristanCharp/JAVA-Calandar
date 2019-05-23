@@ -103,7 +103,7 @@ public class MainWindow extends JFrame {
         
 
 		Object[][] dataListe = { } ;
-		String[] headerListe = {"Nome de la tache","Date due", "Details"}; 
+		String[] headerListe = {"N°","Nome de la tache","Date due", "Details"}; 
         
         table_2 = new JTable(dataListe,headerListe);
         scrollPane.setViewportView(table_2);
